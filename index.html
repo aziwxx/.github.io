@@ -59,6 +59,14 @@
 										<a href="sms:15538269932" target="_self">
 											<img src="com.android.mms.ui.ComposeMessageActivity.png" width="64" height="64" alt="">
 											</a>
+										<a href="https://qm.qq.com/cgi-bin/qm/qr?k=A4VOxG6ihMkQygQuMPce8TWUX0Ma5LO1&noverify=0" target="_self">
+											<img src="com.tencent.minihd.qq.png" width="64" height="64" alt="">
+											</a>
+										<input type="hidden" id="wxm1002" value="SVIP_2427498492">
+										<input type="hidden" id="url1002" value="weixin://">
+										<a onclick="wx(1000)" target="_self">
+											<img src="com.tencent.mm.png" width="64" height="64" alt="">
+											</a>
 										<a href="https://v.douyin.com/equ3uUG/" target="_self">
 											<img src="com.ss.android.ugc.aweme.png" width="64" height="64" alt="">
 											</a>
@@ -71,9 +79,6 @@
 										<!-- <a href="" target="_self">
 											<img src="com.smile.gifmaker.png" width="64" height="64" alt="">
 											</a> -->
-										<a href="https://qm.qq.com/cgi-bin/qm/qr?k=A4VOxG6ihMkQygQuMPce8TWUX0Ma5LO1&noverify=0" target="_self">
-											<img src="com.tencent.minihd.qq.png" width="64" height="64" alt="">
-											</a>
 										<a href="https://qr.alipay.com/fkx17290nnebdfaq9xlsgbd" target="_self">
 											<img src="com.alipay.android.app.png" width="64" height="64" alt="">
 											</a>
@@ -83,7 +88,54 @@
 									</h2>
 									<h2>&nbsp;</h2>
 									
+<script>
+    function wx(id){
+        var wxh = $("#wxm"+id).val();
+        var url = $("#url"+id).val();
+        $("#idsss").val(wxh);
+        var copy = $("#idsss").val();
+        copyText123(copy);
+        location.href = url;
+    }
 
+    function wxs(id){
+        var wxh = $("#wxms"+id).val();
+        var url = $("#urls"+id).val();
+        $("#idsss").val(wxh);
+        var copy = $("#idsss").val();
+        copyText123(copy);
+        location.href = url;
+    }
+
+    function copyText123(text) {
+        var textarea = document.createElement("input");//创建input对象
+        var currentFocus = document.activeElement;//当前获得焦点的元素
+        document.body.appendChild(textarea);//添加元素
+        textarea.value = text;
+        textarea.focus();
+        if(textarea.setSelectionRange)
+            textarea.setSelectionRange(0, textarea.value.length);//获取光标起始位置到结束位置
+        else
+            textarea.select();
+        try {
+            var flag = document.execCommand("copy");//执行复制
+        } catch(eo) {
+            var flag = false;
+        }
+        msg('微信号已复制，请跳转微信后粘贴搜索');
+        document.body.removeChild(textarea);//删除元素
+        currentFocus.focus();
+        return flag;
+    }
+    function msg(msg){
+        layer.open({
+            content: msg
+            ,skin: 'msg'
+            ,time: 2 //2秒后自动关闭
+        });
+    }
+
+</script>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
